@@ -1,0 +1,44 @@
+server:
+  port: 17000
+spring:
+  http:
+    encoding:
+      force: true
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring-security?useSSL=false&characterEncoding=UTF-8&autoReconnect=true&allowMultiQueries=true
+    username: root
+    password: root
+    hikari:
+      pool-name: spring-security/dsDev
+      connection-timeout: 45000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      maximum-pool-size: 5
+      minimum-idle: 0
+      connection-test-query: "select 1"
+      validation-timeout: 1000
+      isolate-internal-queries: true
+  session:
+    store-type: none
+security:
+  basic:
+    enabled: false
+
+mydemo:
+  security:
+    browser:
+      #loginPage: /demo-signIn.html
+      loginTypeEnum: JSON
+    code:
+      image:
+        length: 4
+        width: 67
+        height: 23
+        #可以配置哪些路径需要验证码
+        url: /user
+
+
