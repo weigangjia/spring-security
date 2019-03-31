@@ -11,9 +11,15 @@ package com.spring.security.core.properties;
  */
 public class BrowserProperties {
 
+    private String signUpUrl = "/my-signUp.html";
+
     private String loginPage = SecurityConstants.DEFAULT_LOGIN_PAGE_URL;
 
+    private String signOutUrl;
+
     private LoginResponseType loginType = LoginResponseType.JSON;
+
+    private SessionProperties session = new SessionProperties();
 
     private int rememberMeSeconds = 3600;
 
@@ -39,5 +45,29 @@ public class BrowserProperties {
 
     public void setRememberMeSeconds(int rememberMeSeconds) {
         this.rememberMeSeconds = rememberMeSeconds;
+    }
+
+    public String getSignUpUrl() {
+        return signUpUrl;
+    }
+
+    public void setSignUpUrl(String signUpUrl) {
+        this.signUpUrl = signUpUrl;
+    }
+
+    public SessionProperties getSession() {
+        return session;
+    }
+
+    public void setSession(SessionProperties session) {
+        this.session = session;
+    }
+
+    public String getSignOutUrl() {
+        return signOutUrl;
+    }
+
+    public void setSignOutUrl(String signOutUrl) {
+        this.signOutUrl = signOutUrl;
     }
 }

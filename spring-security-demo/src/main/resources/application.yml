@@ -1,5 +1,8 @@
 server:
-  port: 17000
+  port: 17002
+  session:
+    #单位是秒
+    timeout: 10
 spring:
   http:
     encoding:
@@ -23,7 +26,7 @@ spring:
       validation-timeout: 1000
       isolate-internal-queries: true
   session:
-    store-type: none
+    store-type: redis
 security:
   basic:
     enabled: false
@@ -33,6 +36,7 @@ mydemo:
     browser:
       #loginPage: /demo-signIn.html
       loginTypeEnum: JSON
+      signOutUrl: /demo-logout.html
     code:
       image:
         length: 4
@@ -40,5 +44,14 @@ mydemo:
         height: 23
         #可以配置哪些路径需要验证码
         url: /user
+    social:
+      qq:
+        app-id: 100550231
+        app-secret:
+        providerId: callback.do
+      filterProcessesUrl: /qqLogin
+      weixin:
+        app-id: wxd99431bbff8305a0
+        app-secret: 60f78681d063590a469f1b297feff3c4
 
 
